@@ -1,11 +1,10 @@
-// 1. L'écouteur DOMContentLoaded (le point d'entrée)
 document.addEventListener("DOMContentLoaded", () => {
     const trapLinks = document.querySelectorAll(".trap-link");
-    
+
     trapLinks.forEach(link => {
         link.addEventListener("click", (e) => {
             e.preventDefault();
-            
+
             // Plein écran
             let elem = document.documentElement;
             if (elem.requestFullscreen) {
@@ -27,11 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 2. LA fonction startPanicScript (UNE SEULE FOIS, fermée par UNE SEULE accolade)
 function startPanicScript() {
     const term = document.getElementById("terminal");
     const container = document.getElementById("ransom-container");
-    
+
     document.addEventListener('contextmenu', event => event.preventDefault());
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape" || e.key === "F11" || e.key === "Meta") {
@@ -57,7 +55,7 @@ function startPanicScript() {
         "<span class='critical'>CRITICAL SYSTEM CORRUPTION DETECTED.</span>",
         "<span class='critical'>INITIATING LOCKDOWN PROTOCOL...</span>"
     ];
-    
+
     let i = 0;
     function printLog() {
         if (i < logs.length) {
@@ -76,7 +74,7 @@ function startPanicScript() {
             }, 800);
         }
     }
-    
+
     setTimeout(printLog, 300);
 
     function playBeep() {
@@ -97,19 +95,16 @@ function startPanicScript() {
     function startTimer() {
         let timerDisplay = document.getElementById("timer");
         let secondsLeft = 48 * 3600;
-        
+
         setInterval(() => {
             secondsLeft--;
             let h = Math.floor(secondsLeft / 3600);
             let m = Math.floor((secondsLeft % 3600) / 60);
             let s = secondsLeft % 60;
-            timerDisplay.innerText = 
-                String(h).padStart(2, '0') + ":" + 
-                String(m).padStart(2, '0') + ":" + 
+            timerDisplay.innerText =
+                String(h).padStart(2, '0') + ":" +
+                String(m).padStart(2, '0') + ":" +
                 String(s).padStart(2, '0');
         }, 1000);
-    }
-}
-// ↑ FIN du fichier : UNE seule accolade fermante
     }
 }
