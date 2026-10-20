@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("payload-wrapper").style.display = "block";
             document.body.style.cursor = "none";
 
-            // Lancement
+            // Lancement de la séquence
             startPanicScript();
         });
     });
@@ -30,8 +30,8 @@ function startPanicScript() {
     const term = document.getElementById("terminal");
     const container = document.getElementById("ransom-container");
 
-    document.addEventListener('contextmenu', event => event.preventDefault());
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener("contextmenu", event => event.preventDefault());
+    document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" || e.key === "F11" || e.key === "Meta") {
             e.preventDefault();
         }
